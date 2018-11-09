@@ -7,7 +7,12 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Install selected extensions and other stuff
 RUN apt-get update \
     && apt-get -y --no-install-recommends install \
+        # utils
         git \
+        ant \
+        # chrome
+        chromium-chromedriver \
+        # php ext
         php7.2-intl \
         php7.2-gd \
         php7.2-gmp \
