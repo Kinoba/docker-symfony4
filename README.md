@@ -15,3 +15,7 @@ This is the image we use at Kinoba to start developing quickly on a Symfony 4 pr
 - yarn
 - composer
 - phpdox ([https://github.com/theseer/phpdox](https://github.com/theseer/phpdox))
+
+## Build
+
+`docker build -t kinoba/docker-symfony4-postgres .`

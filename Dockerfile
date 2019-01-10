@@ -19,6 +19,7 @@ RUN apt-get update \
         chromium-chromedriver \
         # chromium \
         # php ext
+        php7.2-bcmath \
         php7.2-intl \
         php7.2-gd \
         php7.2-gmp \
