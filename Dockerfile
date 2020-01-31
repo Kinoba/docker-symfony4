@@ -44,3 +44,15 @@ RUN curl -SL https://github.com/theseer/phpdox/releases/download/0.11.2/phpdox-0
 RUN curl -SL https://phar.phpunit.de/phpunit-7.phar --silent -o phpunit.phar \
     && mv phpunit.phar /usr/local/bin/phpunit \
     && chmod +x /usr/local/bin/phpunit
+
+# Dependency check
+RUN curl -L https://dl.bintray.com/jeremy-long/owasp/dependency-check-5.3.0-release.zip --output dependency-check-5.3.0-release.zip \
+    && unzip dependency-check-5.3.0-release.zip \
+    && mv dependency-check /usr/share/
+ENV PATH="/usr/share/dependency-check/bin:${PATH}"
+RUN curl -L https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.19.tar.gz | tar xz \
+    && mv mysql-connector-java-8.0.19 /var/lib/mysql/
+
+RUN apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+
+RUN composer global require friendsoftwig/twigcs
